@@ -1,0 +1,88 @@
+{% load static %}
+
+{% block content %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'scss/style.css' %}">
+
+    <title>Cart4Fashionista - Login</title>
+</head>
+
+<body>
+
+    <div class="d-sm-flex half">
+        <div class="bg order-1 order-md-2">
+            <img src="{% static '/images/login.jpg'%}"> </div>
+        <div class="contents order-2 order-md-1">
+
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-md-6" style="height:auto">
+                        <h3>Login @ <strong>Cart4Fashionista</strong></h3>
+                        <p class="mb-4">Get all latest trends in fashion @Cart4Fashionista
+                        </p>
+                        <form action="{% url 'authenticate:login' %}" method="post">
+                            {% include 'authenticate/messages.html' %}
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="text" value="{{fieldValues.username}}" name="username" id="usernameField"
+                                    class="form-control form-control-sm" placeholder="Username" />
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" id="passwordField"
+                                    class="form-control form-control-sm" placeholder="Password" />
+                                <small class="float-right py-2 showPasswordToggle">SHOW</small>
+                            </div>
+                            <input type="submit" value="Login" class="btn btn-block submit-btn"
+                                style="background:#60e8f8;" />
+
+                            <br>
+                            <div class="container">
+                                <a href="{% url 'authenticate:request-password' %}" class="float-right">Forgot
+                                    Password?</a>
+                                <span>Don't have an account?</span><br /><a
+                                    href="{% url 'authenticate:registration' %}">Create
+                                    Account</a>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script src="{% static '/js/pass_toggle.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script>
+        window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')
+    </script>
+    <script src="/docs/4.5/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
+{% endblock %}

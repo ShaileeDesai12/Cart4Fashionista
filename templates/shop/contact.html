@@ -1,0 +1,33 @@
+{% extends 'shop/base.html' %}
+{% block title %} Cart4Fashionista - Contact Us {% endblock %}
+{% block body %}
+<div class="container">
+    <div style="background: #3A3B3C; height: 40px;">
+        <h5 class="my-4" style="text-align: center; color:white; padding: 6px 0; ">
+            Contact Us
+        </h5>
+    </div>
+    <br>
+    <form action="/shop/contact/" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name">
+        </div>
+        <div class="form-group">
+            <label for="name">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email">
+        </div>
+        <div class="form-group">
+            <label for="name">Phone</label>
+            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone Number">
+        </div>
+        <div class="form-group">
+            <div class="form-group">
+                <label for="desc">How May We Help You ?</label>
+                <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+            </div>
+            <br>
+            <button type="submit" class="btn navbar-custom2" style=" margin:auto;
+            display:block; ">Submit</button>
+            {% endblock %}

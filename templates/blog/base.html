@@ -1,0 +1,103 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Cart4Fashionista : Blog</title>
+    {% block css %} {% endblock %}
+    <style>
+        /* Modify the background color */
+        .navbar-custom2 {
+            background: #60e8f8;
+        }
+
+        .navbar-custom {
+            background: #B2FEFA;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #0ED2F7, #B2FEFA);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #0ED2F7, #B2FEFA);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        /* Modify brand and text color */
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {
+            color: black;
+        }
+
+        .bgcolor {
+            background: white;
+        }
+    </style>
+</head>
+
+<body class="bgcolor">
+    <nav class="navbar navbar-expand-xl navbar-custom">
+        <a class="navbar-brand" href="/shop"><b>Cart4Fashionista</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id=" navbarSupportedContent" style="color:black; font-size: 18px;">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link navbar-text" href="/shop">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navbar-text" href="/shop/about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navbar-text" href="/blog">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navbar-text" href="/shop/tracker">Tracker</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navbar-text" href="/shop/contact">Contact Us</a>
+                </li>
+            </ul>
+            <form method="get" action="/shop/search/" class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search"
+                    id="search">
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            {% block content %} {% endblock %}
+            <form action="{% url 'authenticate:logout' %}" method="POST">
+                {% csrf_token %}
+                <button style="font-size:20px; display:block; border:none; background:none"><i
+                        class="fa fa-power-off mx-2"></i></button>
+            </form>
+        </div>
+    </nav>
+    {% block body %} {% endblock %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
+    </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2">
+    </script>
+
+
+    {%block js %}{% endblock %}
+</body>
+
+</html>
